@@ -409,6 +409,12 @@ a:focus-visible {
   font-size: 0.82rem;
 }
 
+.project-links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
 .research-questions {
   background: var(--dark);
   color: #f6f7f8;

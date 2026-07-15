@@ -2,6 +2,7 @@
   number: "01"
   label: "Research in progress"
   title: "Dual-Time Agent Memory"
+  url: "/projects/agent-memory/"
   diagram: "memory"
   question: "How can an agent preserve what happened while also tracking how its knowledge changes?"
   contributions:
@@ -12,6 +13,7 @@
   number: "02"
   label: "Agent systems"
   title: "State-Driven AI Calling Agent"
+  url: "/projects/calling-agent/"
   diagram: "agent"
   question: "How do we turn open-ended model behavior into an inspectable production workflow?"
   contributions:
@@ -22,6 +24,7 @@
   number: "03"
   label: "Retrieval adaptation"
   title: "Qwen3 Reranker Fine-tuning"
+  url: "/projects/qwen3-reranker/"
   diagram: "ranking"
   question: "How can a ranking model capture task-specific relevance beyond general semantic similarity?"
   contributions:
