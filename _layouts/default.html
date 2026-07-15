@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ site.locale | default: 'en-US' }}">
+  {% include head.html %}
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="masthead">
+      <div class="masthead__inner">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          {% for item in site.data.navigation.main %}
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          {% endfor %}
+        </nav>
+      </div>
+    </header>
+
+    <div class="page-shell">
+      <aside class="profile" aria-label="Author profile">
+        {% include author-profile.html %}
+      </aside>
+      <main id="main" class="content">
+        {{ content }}
+      </main>
+    </div>
+  </body>
+</html>

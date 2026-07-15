@@ -1,0 +1,11 @@
+main:
+  - title: "About"
+    url: "/#about"
+  - title: "Selected Work"
+    url: "/#selected-work"
+  - title: "Experience"
+    url: "/#experience"
+  - title: "Education"
+    url: "/#education"
+  - title: "CV"
+    url: "/assets/files/Shu_Cheng_Resume.pdf"
