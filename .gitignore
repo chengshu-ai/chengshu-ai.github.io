@@ -5,3 +5,4 @@ _site/
 vendor/
 .superpowers/
 __pycache__/
+.playwright-cli/
