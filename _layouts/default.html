@@ -6,11 +6,22 @@
     <header class="masthead">
       <div class="masthead__inner">
         <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          {% for item in site.data.navigation.main %}
-            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          {% endfor %}
-        </nav>
+        <div class="masthead__actions">
+          <nav class="site-nav" aria-label="Primary navigation">
+            {% for item in site.data.navigation.main %}
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% endfor %}
+          </nav>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme">
+            <svg data-icon="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.4 15.4A8.5 8.5 0 0 1 8.6 3.6 8.5 8.5 0 1 0 20.4 15.4Z"></path>
+            </svg>
+            <svg data-icon="sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="3.5"></circle>
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
     <main id="main">{{ content }}</main>
@@ -18,5 +29,34 @@
       <span>Cheng Shu · East China Normal University</span>
       <span>Research and engineering harnesses: Codex · Claude Code · Cursor</span>
     </footer>
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const toggle = document.querySelector(".theme-toggle");
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+
+        if (!toggle) return;
+
+        const syncThemeControl = () => {
+          const dark = root.dataset.theme === "dark";
+          toggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+          toggle.title = toggle.getAttribute("aria-label");
+          toggle.setAttribute("aria-pressed", String(dark));
+          root.style.colorScheme = dark ? "dark" : "light";
+          if (themeColor) themeColor.content = dark ? "#111820" : "#ffffff";
+        };
+
+        toggle.addEventListener("click", () => {
+          const next = root.dataset.theme === "dark" ? "light" : "dark";
+          root.dataset.theme = next;
+          try {
+            localStorage.setItem("site-theme", next);
+          } catch (error) {}
+          syncThemeControl();
+        });
+
+        syncThemeControl();
+      })();
+    </script>
   </body>
 </html>
