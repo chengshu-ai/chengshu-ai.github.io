@@ -80,6 +80,10 @@ class AboutThemeContract(unittest.TestCase):
         self.assertIn(":root:not([data-theme])", self.scss)
         self.assertIn("prefers-reduced-motion: reduce", self.scss)
 
+    def test_portrait_preserves_original_rendering(self):
+        self.assertIn(".hero-portrait", self.scss)
+        self.assertNotIn("filter: saturate", self.scss)
+
 
 if __name__ == "__main__":
     unittest.main()
