@@ -18,10 +18,10 @@ class CompactHeroContract(unittest.TestCase):
         for text in (
             "MEMORY · AGENTS · EMBODIED AI",
             "Shu Cheng",
-            "舒橙",
             "Agent memory · model post-training · multimodal systems",
         ):
             self.assertIn(text, self.index)
+        self.assertNotIn("舒橙", self.index)
         self.assertNotIn("Systems that help agents", self.index)
         self.assertNotIn("site.author.title", self.profile)
         self.assertNotIn("site.author.affiliation", self.profile)
@@ -30,12 +30,13 @@ class CompactHeroContract(unittest.TestCase):
     def test_required_layout_and_accessibility_hooks(self):
         for selector in (
             ".hero-name",
-            ".hero-name-local",
             ".hero-topics",
             ".hero-statement",
             ".hero-portrait",
         ):
             self.assertIn(selector, self.scss)
+        self.assertNotIn(".hero-name-local", self.scss)
+        self.assertIn("max-width: 270px", self.scss)
         self.assertIn("@media (max-width: 960px)", self.scss)
         self.assertIn("prefers-reduced-motion: reduce", self.scss)
 

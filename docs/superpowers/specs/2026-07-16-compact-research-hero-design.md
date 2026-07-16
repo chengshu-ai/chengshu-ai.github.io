@@ -11,7 +11,7 @@ A calm research profile cover: the name is the strongest signal, the research di
 ## Content hierarchy
 
 1. Research domain label: `MEMORY · AGENTS · EMBODIED AI`
-2. Name: `Shu Cheng` with `舒橙` as a quieter bilingual identifier
+2. Name: `Shu Cheng`, without a second bilingual name label
 3. Compact topic line: `Agent memory · model post-training · multimodal systems`
 4. One research statement connecting current evidence to the embodied-AI direction
 5. Four low-noise links: selected work, email, GitHub, CV

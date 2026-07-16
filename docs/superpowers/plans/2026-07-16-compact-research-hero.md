@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Preserve the existing white, dark-ink, and blue-accent palette.
-- Use the exact hero labels `MEMORY · AGENTS · EMBODIED AI`, `Shu Cheng`, and `舒橙`.
+- Use the exact hero labels `MEMORY · AGENTS · EMBODIED AI` and `Shu Cheng`; do not render a second Chinese name label.
 - Do not claim completed embodied-AI or robot-learning work.
 - Do not modify Selected Work, research questions, experience, project detail pages, or project data.
 - Support 1440px, 1024px, 390px, and 375px without horizontal overflow.
@@ -50,10 +50,10 @@ class CompactHeroContract(unittest.TestCase):
         for text in (
             "MEMORY · AGENTS · EMBODIED AI",
             "Shu Cheng",
-            "舒橙",
             "Agent memory · model post-training · multimodal systems",
         ):
             self.assertIn(text, self.index)
+        self.assertNotIn("舒橙", self.index)
         self.assertNotIn("Systems that help agents", self.index)
         self.assertNotIn("site.author.title", self.profile)
         self.assertNotIn("site.author.affiliation", self.profile)
@@ -62,12 +62,12 @@ class CompactHeroContract(unittest.TestCase):
     def test_required_layout_and_accessibility_hooks(self):
         for selector in (
             ".hero-name",
-            ".hero-name-local",
             ".hero-topics",
             ".hero-statement",
             ".hero-portrait",
         ):
             self.assertIn(selector, self.scss)
+        self.assertNotIn(".hero-name-local", self.scss)
         self.assertIn("prefers-reduced-motion: reduce", self.scss)
 
 
@@ -87,7 +87,7 @@ Use this hero hierarchy in `index.md`:
 
 ```html
 <p class="eyebrow">MEMORY · AGENTS · EMBODIED AI</p>
-<h1 class="hero-name">Shu Cheng <span class="hero-name-local">舒橙</span></h1>
+<h1 class="hero-name">Shu Cheng</h1>
 <p class="hero-topics">Agent memory · model post-training · multimodal systems</p>
 <p class="hero-statement">I build memory and reasoning systems for long-horizon agents, with the goal of connecting reliable learning systems to embodied intelligence.</p>
 ```
@@ -116,8 +116,8 @@ Implement these exact layout boundaries:
 
 ```scss
 .hero {
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-  gap: clamp(2.5rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 270px);
+  gap: clamp(2.5rem, 5vw, 5rem);
   min-height: min(680px, calc(100svh - 72px));
   padding-block: clamp(3rem, 7vh, 5.5rem);
 }
@@ -125,18 +125,10 @@ Implement these exact layout boundaries:
 .hero-name {
   max-width: 760px;
   font-family: inherit;
-  font-size: clamp(3.6rem, 7vw, 6.6rem);
+  font-size: clamp(3.3rem, 5.6vw, 5rem);
   font-weight: 720;
   letter-spacing: -0.065em;
   line-height: 0.92;
-}
-
-.hero-name-local {
-  color: var(--accent);
-  font-size: 0.34em;
-  font-weight: 650;
-  letter-spacing: 0;
-  white-space: nowrap;
 }
 
 .hero-topics {
@@ -158,7 +150,7 @@ Implement these exact layout boundaries:
 
 .hero-identity {
   width: 100%;
-  max-width: 320px;
+  max-width: 270px;
 }
 
 .hero-portrait {
