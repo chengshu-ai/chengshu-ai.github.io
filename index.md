@@ -5,11 +5,12 @@ title: Home
 
 <section id="about" class="hero">
   <div class="hero-copy">
-    <p class="eyebrow">Memory × Reasoning × Embodied AI</p>
-    <h1>Systems that help agents <em>remember, reason, and act.</em></h1>
-    <p class="hero-lead">I build long-horizon memory and model post-training systems, then connect them to grounded perception and reliable decision-making for embodied agents.</p>
+    <p class="eyebrow">MEMORY · AGENTS · EMBODIED AI</p>
+    <h1 class="hero-name">Shu Cheng <span class="hero-name-local">舒橙</span></h1>
+    <p class="hero-topics">Agent memory · model post-training · multimodal systems</p>
+    <p class="hero-statement">I build memory and reasoning systems for long-horizon agents — and study how these capabilities can support embodied intelligence.</p>
     <p class="hero-links">
-      <a href="#selected-work">Explore selected work</a>
+      <a class="hero-link-primary" href="#selected-work">Selected work</a>
       <a href="mailto:{{ site.author.email }}">Email</a>
       <a href="https://github.com/{{ site.author.github }}">GitHub</a>
       <a href="{{ site.author.cv | relative_url }}">CV</a>

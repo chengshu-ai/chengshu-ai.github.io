@@ -115,79 +115,123 @@ a:focus-visible {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.55fr);
-  gap: clamp(3rem, 7vw, 7rem);
-  max-width: var(--page-width);
-  min-height: 34rem;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  max-width: 1160px;
+  min-height: min(680px, calc(100svh - 72px));
   margin: 0 auto;
-  padding: clamp(4.5rem, 8vw, 7.5rem) 1.5rem 5rem;
+  padding: clamp(3rem, 7vh, 5.5rem) 1.5rem;
   align-items: center;
 }
 
+.hero-copy,
+.hero-identity {
+  animation: hero-enter 0.65s ease both;
+}
+
+.hero-identity {
+  animation-delay: 0.1s;
+}
+
 .eyebrow {
-  margin: 0 0 1.2rem;
+  margin: 0 0 1rem;
   color: var(--accent);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.hero h1 {
-  max-width: 780px;
+.hero-name {
+  max-width: 760px;
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.9rem, 5.5vw, 5rem);
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1.04;
+  font-family: inherit;
+  font-size: clamp(3.6rem, 7vw, 6.6rem);
+  font-weight: 720;
+  letter-spacing: -0.065em;
+  line-height: 0.92;
 }
 
-.hero h1 em {
+.hero-name-local {
   color: var(--accent);
-  font-style: normal;
+  font-size: 0.31em;
+  font-weight: 650;
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
-.hero-lead {
-  max-width: 680px;
-  margin: 1.6rem 0 0;
-  color: var(--muted);
-  font-size: 1.08rem;
+.hero-topics {
+  margin: 1.35rem 0 0;
+  color: var(--accent);
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.hero-statement {
+  max-width: 720px;
+  margin: 1.8rem 0 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.18rem, 2vw, 1.5rem);
+  line-height: 1.5;
 }
 
 .hero-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4rem;
-  margin: 1.7rem 0 0;
+  gap: 0.5rem 1.35rem;
+  margin: 1.65rem 0 0;
   font-size: 0.9rem;
 }
 
+.hero-links a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 78%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: color 0.18s ease, background-size 0.18s ease;
+}
+
+.hero-links a:hover,
+.hero-links a:focus-visible {
+  background-size: 42% 2px;
+}
+
+.hero-link-primary {
+  color: var(--ink);
+  font-weight: 650;
+}
+
 .hero-identity {
+  width: 100%;
+  max-width: 320px;
   justify-self: end;
 }
 
 .hero-portrait {
   display: block;
-  width: min(280px, 22vw);
+  width: 100%;
   aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
   object-fit: cover;
   object-position: 50% 20%;
-  filter: saturate(0.82);
-  box-shadow: 18px 18px 0 #dce6eb;
+  filter: saturate(0.88);
+  box-shadow: 0 22px 50px rgba(20, 35, 50, 0.12);
 }
 
-.hero-meta {
-  display: grid;
-  gap: 0.18rem;
-  margin-top: 1.75rem;
-  color: var(--muted);
-  font-size: 0.86rem;
-}
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
 
-.hero-meta strong {
-  color: var(--ink);
-  font-size: 1rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .page-section {
@@ -737,6 +781,27 @@ a:focus-visible {
   font-size: 0.76rem;
 }
 
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 2.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(3.4rem, 7.2vw, 4.7rem);
+  }
+
+  .hero-name-local {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.3em;
+  }
+
+  .hero-identity {
+    max-width: 240px;
+  }
+}
+
 @media (max-width: 760px) {
   .masthead__inner {
     min-height: 3.75rem;
@@ -755,30 +820,46 @@ a:focus-visible {
 
   .hero {
     grid-template-columns: 1fr;
-    gap: 2.2rem;
+    gap: 2rem;
     min-height: 0;
-    padding: 3rem 1.1rem 4rem;
+    padding: 2.75rem 1.1rem 3.5rem;
   }
 
-  .hero h1 {
-    font-size: clamp(2.6rem, 13vw, 3.6rem);
+  .eyebrow {
+    margin-bottom: 0.85rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 16vw, 4.4rem);
+    line-height: 0.94;
+  }
+
+  .hero-name-local {
+    display: inline;
+    margin: 0;
+    font-size: 0.28em;
+  }
+
+  .hero-topics {
+    max-width: 22rem;
+    margin-top: 1.1rem;
+    font-size: 0.85rem;
+  }
+
+  .hero-statement {
+    margin-top: 1.45rem;
+    font-size: 1.12rem;
   }
 
   .hero-identity {
-    display: flex;
     justify-self: start;
-    align-items: end;
-    gap: 1.4rem;
+    max-width: 160px;
   }
 
   .hero-portrait {
-    width: 118px;
-    box-shadow: 10px 10px 0 #dce6eb;
-  }
-
-  .hero-meta {
-    margin: 0;
-    font-size: 0.76rem;
+    box-shadow: 0 14px 32px rgba(20, 35, 50, 0.12);
   }
 
   .page-section {
@@ -890,6 +971,8 @@ a:focus-visible {
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
