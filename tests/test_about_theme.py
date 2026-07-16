@@ -44,6 +44,7 @@ class AboutThemeContract(unittest.TestCase):
         for unsupported_pattern in (
             r"\bvlas?\b",
             r"\bvision[ -]language[ -]action\b",
+            r"\brl\b",
             r"\breinforcement[ -]learning\b",
             r"\brobot[ -]foundation[ -]models?\b",
             r"\breal[ -]robots?\b",
