@@ -55,6 +55,11 @@ title: Home
   <div>
     <h2>Experience</h2>
     <div class="timeline-entry">
+      <h3>Algorithm Engineer · Embodied AI and Robotics</h3>
+      <p class="entry-meta">Xdream Robotic · 2026.06–2026.08</p>
+      <p>Contributed to long-term memory for companion robots, multimodal visual perception, and reinforcement-learning control for a wheeled-legged robot. Integrated ROS2 interfaces and evaluated perception, memory, and control across simulation environments.</p>
+    </div>
+    <div class="timeline-entry">
       <h3>AI Algorithm Engineering Intern</h3>
       <p class="entry-meta">Nuanwa Technology · Shanghai · 2026–Present</p>
       <p>Developing Agent Memory, model post-training, and state-driven AI systems for applied workflows.</p>
